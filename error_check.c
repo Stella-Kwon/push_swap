@@ -6,7 +6,7 @@
 /*   By: skwon2 <skwon2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 15:22:41 by skwon2            #+#    #+#             */
-/*   Updated: 2024/02/13 15:57:10 by skwon2           ###   ########.fr       */
+/*   Updated: 2024/02/13 16:41:05 by skwon2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static long long	overflow_check(long long res, int sign, char str)
 
 static long long	check_res(const char *str)
 {
-	int			i;
+	long long	i;
 	long long	res;
 	int			sign;
 
@@ -69,11 +69,11 @@ long long	ft_atoi(const char *str)
 
 void	error_check(int arg, char **args)
 {
-	int		i;
-	int		j;
+	long long		i;
+	long long		j;
 	// char	*emp;
-	int		atoi_i;
-	int		atoi_j;
+	long long		atoi_i;
+	long long		atoi_j;
 	
 	i = 1;
 	// emp = "";
