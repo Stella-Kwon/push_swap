@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suminkwon <suminkwon@student.42.fr>        +#+  +:+       +#+        */
+/*   By: skwon2 <skwon2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 15:22:41 by skwon2            #+#    #+#             */
-/*   Updated: 2024/02/15 22:34:40 by suminkwon        ###   ########.fr       */
+/*   Updated: 2024/02/19 15:44:03 by skwon2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,12 @@ int error_check(int arg, char **args, t_stack **a)
 {
 	long long i;
 	long long j;
+	long long integer;
 	// char	*emp;
 	long long atoi_i;
 	long long atoi_j;
 
+	integer = 0;
 	i = 1;
 	// emp = "";
 	// if (args[1] == emp) ->  will only compare the addresses of it, not the contents.
@@ -48,7 +50,7 @@ int error_check(int arg, char **args, t_stack **a)
 		printf("args[%lld} : %s\n", i, args[i]);
 		printf("atoi_i : %lld\n\n", atoi_i);
 		// atoi_j = ft_atoi(args[j]); // this can be on here as j can be above arg , also you cannot put it on the while loop as (i < arg && j < arg) this cannot make i to be at the end, and (i < arg || j < arg) this doesn't meet both conditions so cannot make it work
-		if (!args[i][0] || atoi_i == -1 || sizeof(atoi_i) > sizeof(long))
+		if (!args[i][0] || atoi_i == -1 || sizeof(atoi_i) > sizeof(long long))
 		{
 			printf("empty("") | atoi_i == -1 |overbits : \n");
 			return (write_error());
@@ -69,9 +71,18 @@ int error_check(int arg, char **args, t_stack **a)
 		// this is where i got so confused... with everytime a node
 		// or memory pool version  but this is with array : bottom there is more info.
 		// there is another way if malloc whole at once will make no advantages of using linked list
-		insert_args(atoi_i, a);
+		
+		while (integer < arg - 1) // in order to put the integer num in the linkedlist
+		{
+			if (insert_args(atoi_i, a, integer) == -1);
+				return (write_error());
+			integer++;
+		}
 		i++;
+		
 	}
+	if (!a)
+		return (write_error());
 	return (1);
 }
 

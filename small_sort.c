@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   small_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suminkwon <suminkwon@student.42.fr>        +#+  +:+       +#+        */
+/*   By: skwon2 <skwon2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 20:42:38 by suminkwon         #+#    #+#             */
-/*   Updated: 2024/02/15 23:42:35 by suminkwon        ###   ########.fr       */
+/*   Updated: 2024/02/19 12:02:34 by skwon2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    three_sort(t_stack *a)
+void    three_sort(t_stack **a)
 {
-    321 312 132 a b c // b > a ? a > b => b > a 가만히 있고 a > b sa =>  ab는 순서 정리가돼 
-        123           // a > c ? c > a => c > a 하면    ac순서정리를하고
-        231           // b > c? c > b => c > b 하면
-        213
+    // 321 312 132 a b c // b > a ? a > b => b > a 가만히 있고 a > b sa =>  ab는 순서 정리가돼 
+    //     123           // a > c ? c > a => c > a 하면    ac순서정리를하고
+    //     231           // b > c? c > b => c > b 하면
+    //     213
 }
 
 void small_sort(t_stack *a)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suminkwon <suminkwon@student.42.fr>        +#+  +:+       +#+        */
+/*   By: skwon2 <skwon2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 20:56:26 by suminkwon         #+#    #+#             */
-/*   Updated: 2024/02/15 23:01:04 by suminkwon        ###   ########.fr       */
+/*   Updated: 2024/02/19 15:35:34 by skwon2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,17 @@ int main(int arg, char **args)
         printf("stack value : %lld\n", a->data);
         a = a->next;
     }
-    a = tmp;
+    a = tmp; 
+    /*
+    check the a stack is not empty
+    
+    */
     if (is_sorted(a) == -1)
     {
-        // if (arg > 5)
-        //     big_sort();
-        // else
-        //     small_sort();
+        // if (arg < 5)
+        // //     big_sort();
+        // // else
+        //     small_sort(&a);
         printf("sort now");
     }
     ft_free(&a);

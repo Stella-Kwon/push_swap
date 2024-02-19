@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   default_rra_b.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suminkwon <suminkwon@student.42.fr>        +#+  +:+       +#+        */
+/*   By: skwon2 <skwon2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 20:36:10 by suminkwon         #+#    #+#             */
-/*   Updated: 2024/02/15 20:38:26 by suminkwon        ###   ########.fr       */
+/*   Updated: 2024/02/19 11:01:16 by skwon2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void ft_rra(t_stack **a)
     (*a)->next = tmp;    // make the last element to link to the premitive first element
     tmp = tmp->next;     // tmp to direct the original seconde element.
     tmp->next = NULL;    // make it the last
-    write(1, "rra\n", 3);
+    write(1, "rra\n", 4);
 }
 
 void ft_rrb(t_stack **b)
@@ -47,7 +47,7 @@ void ft_rrb(t_stack **b)
     (*b)->next = tmp;
     tmp = tmp->next;
     tmp->next = NULL;
-    write(1, "rrb\n", 3);
+    write(1, "rrb\n", 4);
 }
 
 void ft_rrr(t_stack **a, t_stack **b)
@@ -66,5 +66,5 @@ void ft_rrr(t_stack **a, t_stack **b)
     (*b)->next = tmp;
     tmp = tmp->next;
     tmp->next = NULL;
-    write(1, "rrr\n", 3);
+    write(1, "rrr\n", 4);
 }
