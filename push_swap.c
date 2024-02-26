@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skwon2 <skwon2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: suminkwon <suminkwon@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 20:56:26 by suminkwon         #+#    #+#             */
-/*   Updated: 2024/02/19 15:35:34 by skwon2           ###   ########.fr       */
+/*   Updated: 2024/02/27 00:06:43 by suminkwon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,27 +23,82 @@ int main(int arg, char **args)
         return (0);
     printf("\n\n\n-----Link_NODE-----\n\n\n");
     tmp = a;//has to have it as printing nodes out a has moved to the end and got NULL
-    while (a)
+    while (tmp)
     {
-        printf("stack value : %lld\n", a->data);
-        a = a->next;
+        printf("stack value : %lld\n", tmp->data);
+        tmp =tmp->next;
     }
-    a = tmp; 
     /*
     check the a stack is not empty
-    
+    -> checked it with error_check()
     */
+
     if (is_sorted(a) == -1)
     {
-        // if (arg < 5)
-        // //     big_sort();
-        // // else
-        //     small_sort(&a);
-        printf("sort now");
+        if (arg <= 6)
+            small_sort(&a, arg);
+        // else if (arg)
+        else   
+        {
+            if(big_sort(&a) == -1)
+                return (-1);
+        } 
+    }
+    //a = tmp;// 이렇게 하면 제대로 안나옴 순서가
+    tmp = a;
+    printf("\n\n\n-----After BINARY_SORTED_Lists-----\n\n\n");
+    while (tmp)
+    {
+        printf("sorted value : %lld\n", tmp->data);
+        tmp = (tmp)->next;
     }
     ft_free(&a);
-    // if (!a)
-    //     printf("\n\n\n-----TEH END-----\n");
-    // printf("nothing\n\n\n");
+    if (!a)
+        printf("\n\n\n-----TEH END-----\n");
+    printf("nothing\n\n\n");
     return 0;
 }
+
+
+
+// int main(int arg, char **args)
+// {
+//     t_stack *a;
+//     t_stack *tmp;
+
+//     a = NULL;
+//     if (error_check(arg, args, &a) == -1)
+//         return (0);
+//     printf("\n\n\n-----Link_NODE-----\n\n\n");
+//     tmp = a;
+//     while (a)
+//     {
+//         printf("stack value : %lld\n", a->data);
+//         a = a->next;
+//     }
+//     a = tmp;
+//     printf("\n\n\n-----Link_NODE-----\n\n\n");
+//     printf("%d\n", is_sorted(a));
+//     if (is_sorted(a) == -1)
+//     {
+//         printf("sort now");
+//         if (arg < 5)
+//             small_sort(&a);
+//     }
+//     a = tmp;
+//     printf("\n\n\n-----SORTED_Lists-----\n\n\n");
+//     while (a)
+//     {
+//         printf("sorted value : %lld\n", a->data);
+//         a = a->next;
+//     }
+//     a = tmp;
+//     printf("\n\n\n-----SORTED index-----\n\n\n");
+//     while (a)
+//     {
+//         printf("sorted index : %lld\n", a->index);
+//         a = a->next;
+//     }
+//     ft_free(&a);
+//     return 0;
+// }

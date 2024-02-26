@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   error_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skwon2 <skwon2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: suminkwon <suminkwon@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 15:22:41 by skwon2            #+#    #+#             */
-/*   Updated: 2024/02/19 15:44:03 by skwon2           ###   ########.fr       */
+/*   Updated: 2024/02/21 22:23:02 by suminkwon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int write_error(void)
+int write_error(void)
 {
 	int length;
 
@@ -26,12 +26,12 @@ int error_check(int arg, char **args, t_stack **a)
 {
 	long long i;
 	long long j;
-	long long integer;
+	// long long integer;step
 	// char	*emp;
 	long long atoi_i;
 	long long atoi_j;
 
-	integer = 0;
+	// integer = 0;
 	i = 1;
 	// emp = "";
 	// if (args[1] == emp) ->  will only compare the addresses of it, not the contents.
@@ -43,7 +43,7 @@ int error_check(int arg, char **args, t_stack **a)
 		return (write_error()); // this is woring because write_error is void func.
 	}
 	// printf("\n\n\n<<<<<test: i < arg >>>>>\n\n\n");
-	while (i < arg)				//&& j < arg)
+	while (i < arg) //&& j < arg)
 	{
 		atoi_i = ft_atoi_m(args[i]);
 		printf("\n\n\n>>>>>new_arg<<<<<\n\n\n");
@@ -71,18 +71,21 @@ int error_check(int arg, char **args, t_stack **a)
 		// this is where i got so confused... with everytime a node
 		// or memory pool version  but this is with array : bottom there is more info.
 		// there is another way if malloc whole at once will make no advantages of using linked list
-		
-		while (integer < arg - 1) // in order to put the integer num in the linkedlist
-		{
-			if (insert_args(atoi_i, a, integer) == -1);
-				return (write_error());
-			integer++;
-		}
+
+		// if (integer < arg - 1) // in order to put the integer num in the linkedlist
+		// {
+		// 	if (insert_args(atoi_i, a, integer) == -1)
+		// 		return (write_error());
+		// 	integer++;
+		// }
+		printf("atoi_i : %lld\n" , atoi_i);
+		if (insert_args(atoi_i, a) == -1)
+			return (write_error());
 		i++;
-		
 	}
 	if (!a)
 		return (write_error());
+	printf("finish\n");
 	return (1);
 }
 

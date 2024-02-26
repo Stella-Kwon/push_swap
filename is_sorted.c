@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skwon2 <skwon2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: suminkwon <suminkwon@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 20:25:26 by suminkwon         #+#    #+#             */
-/*   Updated: 2024/02/19 15:44:14 by skwon2           ###   ########.fr       */
+/*   Updated: 2024/02/20 15:23:43 by suminkwon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,13 @@ int is_sorted(t_stack *a) // checking only : no need to pass **, no modify
         while (tmp)
         {
             // printf("\nnext argument : %lld\n", tmp->data);
-            if (a->data >= tmp->data) 
+            if (a->data >= tmp->data)
                 return (-1);
+            // printf("\nnext argument : %lld\n", tmp->data);
             tmp = tmp->next;
         }
         a = a->next;
+        // printf("\na : %lld\n", a->data);
     }
-    return (0);
+    return (1);
 }

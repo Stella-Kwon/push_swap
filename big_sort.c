@@ -3,121 +3,155 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skwon2 <skwon2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: suminkwon <suminkwon@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/15 20:42:38 by suminkwon         #+#    #+#             */
-/*   Updated: 2024/02/19 18:38:11 by skwon2           ###   ########.fr       */
+/*   Created: 2024/02/20 09:50:49 by suminkwon         #+#    #+#             */
+/*   Updated: 2024/02/26 23:01:31 by suminkwon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack   *copy_stack_a(t_stack **a)
+int first_one_bit(t_stack *a)
 {
-    t_stack *new;
-    t_stack *head;
-    t_stack *prev_node;
-    // if (!a)
-    //     return (NULL); already covered
-    head = NULL;
-    prev_node = NULL;
-    while ((*a))
+    t_stack *max;
+    int bits;
+    int bit;
+    int i;
+
+    max = find_max_pointer(a); // protect 해줘야하나?
+    bits = sizeof(max->index) * 8;
+    printf("\n\nmax_index : %lld\n\n", max->index);
+    // printf("\n\nmax_data: %lld\n\n", max->data);
+    // printf("\n\nmax_bits : %d\n\n", bits);
+    i = bits - 1; // because bit index starts from 0
+    while (i >= 0)
     {
-        new = (t_stack*)malloc(sizeof(t_stack)); 
-        if (!new)
-            return (NULL);
-        new->data = (*a)->data;
-        new->index = (*a)->index;
-        // new->next = (*a)->next; this is not true as new->next should follow the following node of new of a
-        new->next = NULL;
-        if (!head)
-            head = new; // in order to return the first address of t_stack
-        else // this way of course it should has the previou node! if head is empty then no previous node needed
-            prev_node -> next = new; // first node -> next = the seconde node.
-        prev_node = new; // when the first approach of this code will point to the first node
-        (*a) = (*a)->next;
+        bit = ((max->index) >> i) & 1;
+        // printf("\n\n%dth : %ibit\n\n", i, bit);
+        if (bit == 1)
+            return (i);
+        i--;
     }
-    return (head);
+    return (i);
 }
 
-
-t_stack *divide_merge_sort(t_stack **copy)
+t_stack *to_binary_sort(t_stack **a)
 {
-    long long i;
-    t_stack *head;
-    
-    i = ft_lstsize((*copy));
-    if (i <= 1)
-        return (head);
-    if (i / 2) 
-    /*
-    we have index elements in the struct, so i will use this
-    by not using the index part, you can use 
-    We initialize two pointers, let's call them slow and fast, both initially pointing to the head of the linked list.
-    In each iteration of the loop, the slow pointer moves one step forward by setting slow = slow.next.
-    At the same time, the fast pointer moves two steps forward by setting fast = fast.next.next.
-    By doing this, when the fast pointer reaches the end of the list (i.e., fast.next is None), the slow pointer will be at the middle node of the list.
+    int i;
+    int j;
+    int bit;
+    int movements;
+    t_stack *b;
+    t_stack *a_tmp;
+    t_stack *a_top;
 
-    def find_middle(head):
-    slow = head
-    fast = head
-    while fast.next and fast.next.next:
-        slow = slow.next
-        fast = fast.next.next
-    return slow
-    */
-   {
-    
-   }
-        
-        
+    movements = 0;
+    b = NULL;
+    a_top = NULL;
+
+    // maximum 크기의 숫자를 찾아서 왼쪽에서시작해서 오른쪽으로 가는데 1이나오는데서 멈춰서 몇개 비트있는지 체크한담에 넘겨주기.
+    // printf("a : %lld\n", (*a)->data);
+    j = 0;
+    i = first_one_bit(*a);
+    printf("\n\nthe start_i = %d\n\n", i);
+    while (j <= i)
+    {
+        printf("\n\n\n------i : %d------\n\n\n", i);
+        a_tmp = *a;
+        while (a_tmp)
+        {
+            printf("\n\n\n-----data check-----\n\n\n");
+            while (a_tmp)
+            {
+                printf("index : %lld\n", a_tmp->index);
+                a_tmp = a_tmp->next;
+            }
+            a_tmp = *a;
+            bit = ((a_tmp->index) >> j) & 1;
+            printf("\n\n\n----a_tmp index:  %lld \n", a_tmp->index);
+            printf("\n\n\n----a_tmp data :  %lld \n", a_tmp->data);
+            printf("\n\n\n----a_data :  %lld \n", (*a)->data);
+            printf("\n\n%dth : %ibit\n\n", i, bit);
+            movements = move_bit_to_Bstack(bit, a, &b, movements, &a_top); //ra가 될경우에 무한루프에 빠질수있어.. *a가 끝나지 않을 수 있으니. 그래서 *a를 계속 움직이지말고 정확한 지점을 정해주기
+            // a_tmp = (a_tmp)->next;  a_tmp의 b스택으로 넘어가면서 바로 null값이 나와서 안된다
+            a_tmp = *a;//이렇게 해줘야ㅡ바뀌어진 a값이랑 맞아지면서 제대로된 index값도 확인하고 밑의 무한루프를 끊는 if문에서도 활용이 가능하다.
+            // printf("a_top :  %lld \n", a_top->index);
+            if (a_top && a_tmp == a_top)
+            {
+                // a_tmp = a_tmp->next;
+                a_top = NULL;
+                break;
+            }
+                
+        }
+        printf("\n\n\n------from b------\n\n\n");
+        // *a = a_top;//확실히 해주기위해
+        while (b)
+        {
+            if(*a)
+                printf("a top;data :  %lld \n", (*a)->data);
+            printf("b top;data :  %lld \n", b->data);
+            printf("\n\n\n-----data check-----\n\n\n");
+            a_tmp = *a;
+            while (a_tmp)
+            {
+                printf("index : %lld\n", a_tmp->index);
+                a_tmp = a_tmp->next;
+            }
+            printf("\n\n\n---------------------\n\n\n");
+            ft_pa(a, &b);
+            movements++;
+            printf("\nmovements : %d\n", movements);
+            }
+        j++;
+    }
+    return(*a);
 }
 
-t_stack * merge(t_stack **copy)
+long long move_bit_to_Bstack(int bit, t_stack **a, t_stack **b, int movements, t_stack **a_top)
 {
-
+    if (bit == 1)
+    {
+        printf("\n\n\n------ft_ra------\n\n\n");
+        if (!(*a_top))
+        {
+            *a_top = *a;
+            printf("a_top :  %lld \n", (*a_top)->index);
+        }
+            
+        ft_ra(a);
+        printf("====> ra 다음 *a->index: %lld\n", (*a)->index);
+        movements++;
+        printf("\nmovements : %d\n", movements);
+    }
+    else if (bit == 0)
+    {       
+        printf("\n\n\n------ft_pb------\n\n\n");
+        // if (*b)
+        //     printf("*b->data : %lld \n\n", (*b)->data);
+        ft_pb(a, b);
+        printf("====> pb 다음 *b->index : %lld \n\n", (*b)->index);
+        movements++;
+        printf("\nmovements : %d\n", movements);
+    }
+    return (movements);
 }
 
-/*
-def merge_sort(arr):
-   # Base case: If the array has one or zero element, it's already sorted
-  if len(arr) <= 1:
-      return arr
+int big_sort(t_stack **a)
+{
+    if (pre_sort(a) == -1)
+        return (-1);
+    *a = to_binary_sort(a);
+    return (0);
+}
 
-  # Divide the array into two halves
-  mid = len(arr) // 2
-  left_half = arr[:mid]
-  right_half = arr[mid:]
 
-  # Recursively sort both halves
-  left_half = merge_sort(left_half)
-  right_half = merge_sort(right_half)
 
-  # Merge the sorted halves
-  return merge(left_half, right_half)
-  
-def merge(left, right):
-  result = []
-  left_index, right_index = 0, 0
-
-  # Traverse both left and right arrays
-  while left_index < len(left) and right_index < len(right):
-      if left[left_index] < right[right_index]:
-          result.append(left[left_index])
-          left_index += 1
-      else:
-          result.append(right[right_index])
-          right_index += 1
-
-  # If left array still has elements, add them to result
-  while left_index < len(left):
-      result.append(left[left_index])
-      left_index += 1
-
-  # If right array still has elements, add them to result
-  while right_index < len(right):
-      result.append(right[right_index])
-      right_index += 1
-
-  return result
-*/
+// int main()
+// {
+//     long long num;
+//     num = 5;
+//     to_binary(num);
+//     return 0;
+// }

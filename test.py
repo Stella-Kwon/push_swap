@@ -14,6 +14,9 @@ def merge_sort(arr):
   right_half = merge_sort(right_half)
 
   # Merge the sorted halves
+  print ("left_half : ", left_half)
+  print ("right_half : ", right_half)
+    
   return merge(left_half, right_half)
   
 def merge(left, right):
@@ -24,27 +27,31 @@ def merge(left, right):
   while left_index < len(left) and right_index < len(right):
       if left[left_index] < right[right_index]:
           result.append(left[left_index])
-          print(left[left_index])
-          print("\n")
+          print("left[left_index] : ", left[left_index])
+          print("result: ", result)
+          input()
           left_index += 1
       else:
           result.append(right[right_index])
-          print(right[right_index])
-          print("\n")
+          print("right[right_index] : ", right[right_index])
+          print("result: ", result)
+          input()
           right_index += 1
 
   # If left array still has elements, add them to result
   while left_index < len(left):
       result.append(left[left_index])
-      print(left[left_index])
-      print("\n")
+      print("still_left : ", left[left_index])
+      print("result: ", result)
+      input()
       left_index += 1
 
   # If right array still has elements, add them to result
   while right_index < len(right):
       result.append(right[right_index])
-      print(right[right_index])
-      print("\n")
+      print("still_right : ", right[right_index])
+      print("result: ", result)
+      input();
       right_index += 1
 
   return result

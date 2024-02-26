@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft_lst_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skwon2 <skwon2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: suminkwon <suminkwon@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:57:21 by suminkwon         #+#    #+#             */
-/*   Updated: 2024/02/19 14:06:01 by skwon2           ###   ########.fr       */
+/*   Updated: 2024/02/27 00:27:09 by suminkwon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_stack *ft_lstlast(t_stack *lst) // 나중에 library연결해서 해보자고
         lst = lst->next;
     return (lst);
 }
-t_stack *ft_lstnew(int data, long long i) // 나중에 library연결해서 해보자고
+t_stack *ft_lstnew(long long data)//, long long i) // 나중에 library연결해서 해보자고
 {
     t_stack *new; 
     
@@ -28,9 +28,8 @@ t_stack *ft_lstnew(int data, long long i) // 나중에 library연결해서 해�
     if (!new)
         return (NULL);
     new->data = data;
+    new->index = 0;
     new->next = NULL;
-    // new->prev = NULL;
-    new->index = 0 + i;
     return (new);
 }
 void ft_lstadd_back(t_stack **lst, t_stack *new) // 나중에 library연결해서 해보자고
