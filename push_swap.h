@@ -6,7 +6,7 @@
 /*   By: suminkwon <suminkwon@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 15:24:49 by skwon2            #+#    #+#             */
-/*   Updated: 2024/02/27 00:45:42 by suminkwon        ###   ########.fr       */
+/*   Updated: 2024/02/27 14:58:00 by suminkwon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct stack
     // struct stack *prev;
 } t_stack;
 
-int error_check(int arg, char **args, t_stack **a);
+int error_check(int arg, char **args, t_stack **a, long long *arg_i);
 int write_error(void);
 long long ft_atoi_m(const char *str);
 t_stack *ft_lstlast(t_stack *lst);
@@ -48,7 +48,7 @@ void ft_rrb(t_stack **b);
 void ft_rrr(t_stack **a, t_stack **b);
 void ft_free(t_stack **lst);
 // int insert_args(int atoi_i, t_stack **a, long long i);
-int insert_args(long long atoi_i, t_stack **a);
+int insert_args(long long atoi_i, t_stack **a, long long *arg_i);
 int is_sorted(t_stack *a);
 int find_index(t_stack *a_b, long long data);
 long long find_max(t_stack *a_b);
@@ -69,4 +69,8 @@ long long move_bit_to_Bstack(int bit, t_stack **a, t_stack **b, int movements, t
 int big_sort(t_stack * *a);
 int first_one_bit(t_stack * a);
 t_stack *find_max_pointer(t_stack * a_b);
+char **ft_split(char const *s, char c);
+int check_integer(int arg, char **args, t_stack **a, long long i, long long *arg_i);
+size_t ft_strlcpy(char *dst, const char *src, size_t dstsize);
+size_t ft_strlen(const char *s);
 #endif

@@ -6,7 +6,7 @@
 /*   By: suminkwon <suminkwon@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:57:21 by suminkwon         #+#    #+#             */
-/*   Updated: 2024/02/27 00:27:09 by suminkwon        ###   ########.fr       */
+/*   Updated: 2024/02/27 14:05:06 by suminkwon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,3 @@ long long ft_lstsize(t_stack *lst)
 	}
 	return (c);
 }
-

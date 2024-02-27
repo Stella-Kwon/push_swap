@@ -6,7 +6,7 @@
 #    By: suminkwon <suminkwon@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/26 23:34:08 by suminkwon         #+#    #+#              #
-#    Updated: 2024/02/27 00:02:10 by suminkwon        ###   ########.fr        #
+#    Updated: 2024/02/27 12:59:36 by suminkwon        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRCS = 	big_sort.c\
 		pre_sort.c\
 		push_swap.c\
 		small_sort.c\
+		lib_ft_splict.c\
 		
 OBJS = $(SRCS:.c=.o)
 
