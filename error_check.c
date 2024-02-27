@@ -80,6 +80,8 @@ int error_check(int arg, char **args, t_stack **a, long long *arg_i)
 	{
 		i = 0;
 		str_arg = ft_split(args[1], ' ');
+		if (!str_arg)
+			return(write_error());
 		while (str_arg[i])
 		{
 			printf("std_arg :  %s\n", str_arg[i]);
@@ -87,7 +89,7 @@ int error_check(int arg, char **args, t_stack **a, long long *arg_i)
 				return (-1);
 			i++;
 		}
-		
+		ft_free(str_arg);
 		return (1);
 	}
 	// printf("\n\n\n<<<<<test: i < arg >>>>>\n\n\n");
