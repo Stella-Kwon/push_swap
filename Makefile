@@ -28,7 +28,8 @@ SRCS = 	big_sort.c\
 		push_swap.c\
 		small_sort.c\
 		lib_ft_splict.c\
-		
+		lib_utils.c\
+
 OBJS = $(SRCS:.c=.o)
 
 .c.o:
