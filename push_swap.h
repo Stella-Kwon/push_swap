@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suminkwon <suminkwon@student.42.fr>        +#+  +:+       +#+        */
+/*   By: skwon2 <skwon2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 15:24:49 by skwon2            #+#    #+#             */
-/*   Updated: 2024/02/28 17:03:18 by suminkwon        ###   ########.fr       */
+/*   Updated: 2024/02/28 18:59:25 by skwon2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int			big_sort(t_stack **a);
 int			first_one_bit(t_stack *a);
 t_stack		*find_max_pointer(t_stack *a_b);
 char		**ft_split(char const *s, char c);
-int			check_integer(int arg, char *args, t_stack **a, long long *arg_i);
+int			check_integer(int arg, char **args, t_stack **a, long long *arg_i);
 size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t		ft_strlen(const char *s);
 int			arg_is_two(int arg, char **args, t_stack **a, long long *arg_i);
