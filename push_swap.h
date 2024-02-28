@@ -6,7 +6,7 @@
 /*   By: suminkwon <suminkwon@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 15:24:49 by skwon2            #+#    #+#             */
-/*   Updated: 2024/02/27 14:58:00 by suminkwon        ###   ########.fr       */
+/*   Updated: 2024/02/27 19:01:54 by suminkwon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,5 @@ char **ft_split(char const *s, char c);
 int check_integer(int arg, char **args, t_stack **a, long long i, long long *arg_i);
 size_t ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t ft_strlen(const char *s);
+char **all_free(char **res);
 #endif

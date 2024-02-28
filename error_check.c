@@ -6,7 +6,7 @@
 /*   By: suminkwon <suminkwon@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 15:22:41 by skwon2            #+#    #+#             */
-/*   Updated: 2024/02/27 15:28:51 by suminkwon        ###   ########.fr       */
+/*   Updated: 2024/02/27 19:09:06 by suminkwon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,13 @@ int error_check(int arg, char **args, t_stack **a, long long *arg_i)
 		{
 			printf("std_arg :  %s\n", str_arg[i]);
 			if(check_integer(arg, str_arg, a, i, arg_i) == -1)
+			{
+				all_free(str_arg);
 				return (-1);
+			}
 			i++;
 		}
-		ft_free(str_arg);
+		all_free(str_arg);
 		return (1);
 	}
 	// printf("\n\n\n<<<<<test: i < arg >>>>>\n\n\n");

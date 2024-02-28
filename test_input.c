@@ -14,8 +14,7 @@ int main()
 
     // 난수 생성을 위한 시드 설정
     srand(time(NULL));
-
-    // 겹치지 않는 숫자 100개 생성
+    // 겹치지 않는 숫자 500개 생성
     for (i = 0; i < NUM_COUNT; i++)
     {
         do //조건을 먼저 시작하지 않기위해 do하고 while밑에진행

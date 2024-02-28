@@ -6,7 +6,7 @@
 /*   By: suminkwon <suminkwon@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 20:42:38 by suminkwon         #+#    #+#             */
-/*   Updated: 2024/02/27 01:17:34 by suminkwon        ###   ########.fr       */
+/*   Updated: 2024/02/28 16:40:42 by suminkwon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void up_to_four(t_stack **a, t_stack **b)
         ft_ra(a);
         printf("*a = %lld\n", (*a)->data);
     }
-    printf("a = %lld\n", (*a)->data);
     if (is_sorted(*a) == -1)
         up_to_three(a);
     ft_pa(a, b);
@@ -46,7 +45,6 @@ void up_to_five(t_stack **a, t_stack **b)
         if (min == (*a)->data)
         {
             ft_pb(a, b);
-            printf("min = %lld\n", (*a)->data);
             break;
         }
         ft_ra(a);

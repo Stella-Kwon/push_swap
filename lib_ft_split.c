@@ -6,7 +6,7 @@
 /*   By: suminkwon <suminkwon@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 12:55:22 by suminkwon         #+#    #+#             */
-/*   Updated: 2024/02/27 14:03:49 by suminkwon        ###   ########.fr       */
+/*   Updated: 2024/02/27 19:01:39 by suminkwon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static size_t get_each_strlen(char **str, char c)
     return (i);
 }
 
-static char **all_free(char **res)
+char **all_free(char **res)
 {
     int i;
 
