@@ -6,7 +6,7 @@
 #    By: suminkwon <suminkwon@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/26 23:34:08 by suminkwon         #+#    #+#              #
-#    Updated: 2024/02/27 16:10:17 by suminkwon        ###   ########.fr        #
+#    Updated: 2024/02/28 15:36:42 by suminkwon        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRCS = 	big_sort.c\
 		small_sort.c\
 		lib_ft_split.c\
 		lib_utils.c\
+		merge_divide.c\
 		
 OBJS = $(SRCS:.c=.o)
 
