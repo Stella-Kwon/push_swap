@@ -6,7 +6,7 @@
 /*   By: suminkwon <suminkwon@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 15:16:22 by suminkwon         #+#    #+#             */
-/*   Updated: 2024/02/28 18:26:37 by suminkwon        ###   ########.fr       */
+/*   Updated: 2024/02/28 18:30:34 by suminkwon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,31 +21,7 @@ static long long	overflow_check(long long res, int sign, char str)
 	res = res * 10 + (str - 48);
 	return (res);
 }
-// handle "1432"  4 cases -> as 2 arg
-// static long long check_only_integer(const char *str, long long i, int sign)
-// {
-// 	long long res;
 
-// 	res = 0;
-// 	while (str[i])
-// 	{
-// 		while ((str[i] > 8 && str[i] <= 13) || str[i] == 32)
-// 			i++;
-// 		if (str[i])
-// 		{
-// 			if (str[i] >= 48 && str[i] <= 57)
-// 			{
-// 				res = overflow_check(res, sign, str[i]);
-// 				i++;
-// 			}
-// 			else if (str[i] < 48 || str[i] > 57 || res == -1)
-// 				return (-1);
-// 		}
-// 	}
-// 	return (res);
-// }
-
-//not handling "3" "56"
 static long long	check_only_integer(const char *str, long long i, int sign)
 {
 	long long	res;
@@ -53,8 +29,6 @@ static long long	check_only_integer(const char *str, long long i, int sign)
 	res = 0;
 	while (str[i])
 	{
-		// while ((str[i] > 8 && str[i] <= 13) || str[i] == 32)
-		// 	i++;
 		if (str[i])
 		{
 			if (str[i] >= 48 && str[i] <= 57)
