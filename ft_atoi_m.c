@@ -38,6 +38,8 @@ static long long check_only_integer(const char *str, long long i, int sign)
             if (str[i] >= 48 && str[i] <= 57)
             {
                 res = overflow_check(res, sign, str[i]);
+                if (res == -1)
+					return (-1);
                 i++;
             }
             else if (str[i] < 48 || str[i] > 57 || res == -1)
